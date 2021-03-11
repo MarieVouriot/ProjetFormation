@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
+
+{% block body %}
+<body style="background-color: #C3D5FF ">
+    <div class="p-3">    
+        <h1> Inscrit-toi ! </h1>
+        {{ form(form)}}
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div style="text-align : center" class="p-3 mb-2 bg-primary text-white" >
+        <h1>Vous êtes dans la liste des formations : </h1>
+    </div>
+    {% if (message) %}
+        {{ message }}
+    {% endif %}
+    <div class="p-3" >
+        {% for formation in ensFormations %}
+            Date de début : {{ formation.dateDebut|date("m/d/Y") }} 
+            Nombre d'heures : {{ formation.nbHeures }}
+            Departement : {{ formation.departement }}
+            Produit : {{ formation.produit.libelle}}
+            <button class="btn btn-outline-secondary" type="submit"><a href="{{path('supp_formation', {'id' : formation.id})}}">suppression</a></button>
+            <br/><br/>
+        {% endfor %}
+        <button class="btn btn-outline-secondary" type="submit"><a href="{{path('ajout_formation')}}">Ajouter une formation</a>  </button>
+        <button class="btn btn-outline-secondary" type="submit"><a href="{{path('affiche_inscription')}}">Acceder aux inscriptions</a></button>
+    </div>
+{% endblock %}

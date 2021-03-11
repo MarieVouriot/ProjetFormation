@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+{% form_theme form 'form_table_layout.html.twig' %}
+
+{% block body %}
+    <div style="text-align : center" class="p-3 mb-2 bg-primary text-white" >
+        <h1>Ajoutez une formation</h1>
+    </div>
+    {{ form(form)}}
+{% endblock %}

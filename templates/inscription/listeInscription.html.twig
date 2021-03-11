@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <div style="text-align : center" class="p-3 mb-2 bg-primary text-white" >
+        <h1>Vous êtes dans la liste des inscriptions : </h1>
+    </div>
+    {% if (message) %}
+        {{ message }}
+    {% endif %}
+
+    <div style="text-align : center" class="p-3 d-flex flex-row row">
+        {% for inscription in ensInscriptions %}
+            <div class="w-25 col-sm-4 ">
+                Formation numero : {{inscription.formation.id}} </br>
+                Nom : {{inscription.employe.nom }}
+                Prenom : {{inscription.employe.prenom}}
+                </br></br>
+                <button class="btn btn-outline-secondary" type="submit"><a href="{{path('accepter_inscription', {'id' : inscription.id})}}">Accepter</a> </button>
+                <button class="btn btn-outline-secondary" type="submit"><a href="{{path('refuser_inscription', {'id' : inscription.id})}}">Refuser</a> </button>
+                <br/></br></br>
+            </div>
+            <br/>
+        {% endfor %}
+        <br/>
+    </div>
+{% endblock %}
